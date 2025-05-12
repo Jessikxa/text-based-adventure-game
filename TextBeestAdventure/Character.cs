@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace TextBeestAdventure
 {
-    internal class Program
+    internal class Character
     {
-        static void Main(string[] args)
-        { 
-            
+        public string Name;
+        public string xpLevel;
+        public Character(string name)
+        {
+            Name = name;
         }
     }
 }
