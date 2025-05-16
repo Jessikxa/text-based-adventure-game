@@ -9,8 +9,21 @@ namespace TextBeestAdventure
     internal class Program
     {
         static void Main(string[] args)
-        { 
-            
+        {
+            switch ()
+            {
+                case 0 : 
+                    Console.WriteLine("wee");
+                    break;
+
+                case 1: 
+                    Console.WriteLine("wee");
+                    break;
+
+                case 2: 
+                    Console.WriteLine("wee");
+                    break;
+            }
         }
     }
 }

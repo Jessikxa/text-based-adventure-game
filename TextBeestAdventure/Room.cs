@@ -13,10 +13,10 @@ namespace TextBeestAdventure
 
         List<Room> RoomsAllowedToGoTo;
 
-        public Room(string roomName) 
+        public Room(string roomName, int bing) 
         {
             Name = roomName;
-            RoomsAllowedToGoTo = new List<Room>();
+            RoomsAllowedToGoTo = new List<Room>(bing);
         }
     }
 }
