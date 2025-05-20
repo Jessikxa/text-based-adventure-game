@@ -19,19 +19,6 @@ namespace TextBeestAdventure
 
         public void chooseCharacter(List<Character> characters) 
         {
-            switch (xpLevel) 
-            {
-                case 0:
-                    characters.Add(this);
-                    break;
-                case 1:
-                    characters.Add(this);
-                    break;
-                case 2:
-                    characters.Add(this);
-                    break;
-                case 3:
-            }
         }
     }
 }
