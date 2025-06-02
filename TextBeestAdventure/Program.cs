@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,20 +11,19 @@ namespace TextBeestAdventure
     {
         static void Main(string[] args)
         {
-            switch ()
-            {
-                case 0 : 
-                    Console.WriteLine("wee");
-                    break;
+            //string displayName = Console.ReadLine();
+            //string displayInteractionText = Console.ReadLine();
+            //displayName,displayInteractionText
+            //NPC myNPC = new NPC("Jessica", "hoi ik ben jessica");
 
-                case 1: 
-                    Console.WriteLine("wee");
-                    break;
+            NPC npc = new NPC("Kirby", " Hi im kirby");
+            NPCWithGoodbye myNPC = new NPCWithGoodbye("Jessica", " hoi ik ben jessica");
+            
 
-                case 2: 
-                    Console.WriteLine("wee");
-                    break;
-            }
+            npc.Talk();
+
+            myNPC.Talk();
+            myNPC.Goodbye();
         }
     }
 }

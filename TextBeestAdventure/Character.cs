@@ -30,7 +30,7 @@ namespace TextBeestAdventure
                 case 2:
                     characters.Add(this);
                     break;
-                case 3:
+                
             }
         }
     }

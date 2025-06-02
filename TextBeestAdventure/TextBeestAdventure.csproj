@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="Command.cs" />
+    <Compile Include="NPC.cs" />
+    <Compile Include="NPCWithGoodbye.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Room.cs" />

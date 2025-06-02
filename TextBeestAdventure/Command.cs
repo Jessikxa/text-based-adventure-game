@@ -12,7 +12,7 @@ namespace TextBeestAdventure
     {
         public string Name;
         public string Info;
-        Action<string> executeCommand = womp =>; 
+        //Action<string> executeCommand ; 
         
         //public int accesor
         //public Action<string> Action;
