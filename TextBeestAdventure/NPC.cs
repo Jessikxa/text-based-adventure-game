@@ -17,7 +17,7 @@ namespace TextBeestAdventure
             InteractionText = interactiontext;
         }
 
-        public void Talk()
+        public virtual void Talk()
         {
             Console.WriteLine($"{Name}:{InteractionText}");
         }

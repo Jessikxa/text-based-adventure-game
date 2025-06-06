@@ -16,14 +16,14 @@ namespace TextBeestAdventure
             //displayName,displayInteractionText
             //NPC myNPC = new NPC("Jessica", "hoi ik ben jessica");
 
-            NPC npc = new NPC("Kirby", " Hi im kirby");
+            //NPC npc = new NPC("Kirby", " Hi im kirby");
             NPCWithGoodbye myNPC = new NPCWithGoodbye("Jessica", " hoi ik ben jessica");
-            
 
-            npc.Talk();
+
+            //npc.Talk();
 
             myNPC.Talk();
-            myNPC.Goodbye();
+            //myNPC.Goodbye();
         }
     }
 }

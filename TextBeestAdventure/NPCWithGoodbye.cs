@@ -17,5 +17,11 @@ namespace TextBeestAdventure
         {
             Console.WriteLine("BYEEEEEE");
         }
+
+        public override void Talk()
+        {
+            base.Talk();
+            Console.WriteLine("it is now CHANGED");
+        }
     }
 }
