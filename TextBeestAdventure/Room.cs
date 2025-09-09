@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TextBeestAdventure
 {
-
+    
     public enum Directions {
         North,
         South,
@@ -39,9 +39,9 @@ namespace TextBeestAdventure
             }
         }
 
-        public virtual void RoomFunctions()
+        public virtual void RoomFunctions(InventorySystem inventory)
         {
-
+            
         }
     }
 }

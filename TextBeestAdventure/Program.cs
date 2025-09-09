@@ -19,48 +19,50 @@ namespace TextBeestAdventure
 
 
             Ascii art = new Ascii();
-            NPC kitchenNpc = new NPC("wee");
-            NPC labNpc = new NPC("wee");
-            NPC diningNpc = new NPC("wee");
+            //NPC kitchenNpc = new NPC("wee");
+            //NPC labNpc = new NPC("wee");
+            //NPC diningNpc = new NPC("wee");
             Dialog meep = new Dialog();
-            Kitchen kitchenRoom = new Kitchen("", "");
-            Dining_Room diningRooms = new Dining_Room("wee", "woo");
+           
 
 
 
             //rooms
-            Room starterRoom = new Room("Castle Entrance", " You stand in front of Avidrian's doorway. \nWhen you look up the stone walls seem to touch the sky. \nYou use the door knocker to knock three times. \nWhen knocking the third time, the door opens.");
+            Room starterRoom = new Room("Castle Entrance", " You stand in front of Avidrian's doorway. \nWhen you look up, it seems as if the stone walls touch the sky. \nYou use the door knocker to knock three times. \nWhen knocking the third time, the door opens.");
 
             //starterRoom.add("north", 1);
             rooms.Add(starterRoom);
             //rooms[0].RoomFunctions();
 
             //room2
-            Room Kitchen = new Room("The Kitchen", "If you can call it that, has rotten food caked on the floor and all surfaces, with loads of cobwebs. The smell is putrid and you become a little bit queasy. knives and pots are rusted. The only thing remotely clean are big wooden bowls.");
+            Kitchen kitchenRoom = new Kitchen("The Kitchen", "If you can call it that, has rotten food caked on the floor and all surfaces, with loads of cobwebs. The smell is putrid and you become a little bit queasy. knives and pots are rusted. The only thing remotely clean are big wooden bowls.");
             //Kitchen.roomChoiceExit("east", 2);
-            rooms.Add(Kitchen);
+            rooms.Add(kitchenRoom);
 
             //room3
-            Room Lab = new Room("The Laboratorium", "flasks on the tables, with different coloured liquids, filled to differen levels. Books and pages littering the room. Some had gotton on the floor but most of the mess was on the tables and desk.");
+            LabRoom Lab = new LabRoom("The Laboratorium", "flasks on the tables, with different coloured liquids, filled to differen levels. Books and pages littering the room. Some had gotton on the floor but most of the mess was on the tables and desk.");
             //Lab.roomChoiceExit("north", 3);
             rooms.Add(Lab);
 
             //room4
-            Room diningRoom = new Room("The Dining Room", "The room is dusty but no apparent mess.");
+            Dining_Room diningRoom = new Dining_Room("The Dining Room", "The room is dusty but no apparent mess.");
             //diningRoom.roomChoiceExit("west", 4);
             rooms.Add(diningRoom);
 
             Room library = new Room("The Library", "on the brink of death you muster your way to the newly opened room. You enter the ancient library. Dusty tomes and mysterious books line the shelves. This is your last chance to find a cure using your knowledge and the items you've collected.");
 
 
-            Item potion = new Item("Potion", "A mysterious glowing potion.");
-            Item book = new Item("Book", "An old dusty spellbook.");
-            Item apple = new Item("Apple", "A fresh red apple.");
+            //Item potion = new Item("Potion", "A mysterious glowing potion.");
+            //Item book = new Item("Book", "An old dusty spellbook.");
+            //Item apple = new Item("Apple", "A fresh red apple.");
+            Item goatsEye = new Item("Goats Eye", "Has the same look that all the trapped souls have.");
+            Item fur = new Item("fur", "Soft and fluffy, taken from a boy's teddy bear.");
+            Item flask = new Item("flask", "A small glass container filled with a pink liquid.");
 
-
-            Kitchen.Items.Add(potion);
-            Lab.Items.Add(book);
-            diningRoom.Items.Add(apple);
+            kitchenRoom.Items.Add(goatsEye);
+            Lab.Items.Add(flask);
+            diningRoom.Items.Add(fur);
+            
 
 
             InventorySystem inventory = new InventorySystem();
@@ -75,14 +77,34 @@ namespace TextBeestAdventure
             int currentDay = 0;
             const int maxDays = 4;
             bool playing = true;
+            
+            bool intro = true;
 
-            Console.WriteLine(starterRoom.RoomDescription);
-            Console.WriteLine("a - Enter castle");
-            string desicion = Console.ReadLine();
-            if (desicion != "a")
+            while(intro)
             {
-                Console.WriteLine($"error. {desicion} is invalid. type in 'a'.");
+                Console.WriteLine("Type 'start' to begin your adventure or 'exit' to quit:");
+                string startInput = Console.ReadLine().ToLower();
+                if (startInput == "start")
+                {
+                    intro = false;
+                }
+                else if (startInput == "exit")
+                {
+                    Console.WriteLine("Exiting the game. Goodbye!");
+                    return; // Exit the program
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please type 'start' or 'exit'.");
+                }
             }
+            //Console.WriteLine(starterRoom.RoomDescription);
+            //Console.WriteLine("a - Enter castle");
+            //string desicion = Console.ReadLine().ToLower();
+            //if (desicion != "a")
+            //{
+            //    Console.WriteLine($"error. {desicion} is invalid. type in 'a'.");
+            //}
 
             while (playing)
             {
@@ -95,12 +117,17 @@ namespace TextBeestAdventure
                 Console.WriteLine("Type 'stats' to view your health and inventory.");
                 Console.WriteLine("Type 'exit' to quit the game");
 
+               
+                
+
                 string choice = Console.ReadLine().ToLower();
 
                 if (choice == "stats")
                 {
+                    Console.WriteLine("\n");
                     wizard.DisplayHealth();
                     inventory.ListItems();
+                    Console.WriteLine("");
                     continue;
                 }
 
@@ -115,29 +142,28 @@ namespace TextBeestAdventure
                 if (choice == "north")
                 {
                     currentRoomIndex = rooms.IndexOf(Lab);
-                    Console.WriteLine($"Rooms you can enter");
                     Console.WriteLine($" You entered {Lab.RoomName}. \n{Lab.RoomDescription}");
 
-
                     Console.ReadLine();
-                    labNpc.labNPC();
+                    Lab.RoomFunctions(inventory);
                     validOption = true;
 
                 }
                 else if (choice == "east")
                 {
-                    currentRoomIndex = rooms.IndexOf(Kitchen);
-                    Console.WriteLine($" You entered {Kitchen.RoomName}. \n{Kitchen.RoomDescription}");
+                    currentRoomIndex = rooms.IndexOf(kitchenRoom);
+                    Console.WriteLine($" You entered {kitchenRoom.RoomName}. \n{kitchenRoom.RoomDescription}");
                     Console.ReadLine();
-                    kitchenRoom.RoomFunctions();
+                    kitchenRoom.RoomFunctions(inventory);
                     validOption = true;
                 }
                 else if (choice == "west")
                 {
                     currentRoomIndex = rooms.IndexOf(diningRoom);
                     Console.WriteLine($" You entered {diningRoom.RoomName}. \n{diningRoom.RoomDescription}");
+                    
                     //diningNpc.diningNPC();
-                    diningRooms.RoomFunctions();
+                    diningRoom.RoomFunctions(inventory);
                     validOption = true;
 
                 }
@@ -146,27 +172,7 @@ namespace TextBeestAdventure
                     Console.WriteLine("invalid input. try again.");
                 }
 
-                Room currentroom = rooms[currentRoomIndex];
-
-                if (currentroom.Items.Count > 0)
-                {
-
-                    Console.WriteLine("You see the following items:");
-                    for (int i = 0; i < currentroom.Items.Count; i++)
-                    {
-                        Console.WriteLine($"{i + 1}. {currentroom.Items[i].Name} - {currentroom.Items[i].Description}");
-                    }
-                    Console.WriteLine("Type the number of the item to pick it up, or press Enter to skip:");
-                    string input = Console.ReadLine();
-                    if (int.TryParse(input, out int itemIndex) && itemIndex > 0 && itemIndex <= currentroom.Items.Count)
-                    {
-                        Item pickedItem = currentroom.Items[itemIndex - 1];
-                        inventory.AddItem(pickedItem);
-                        currentroom.Items.RemoveAt(itemIndex - 1);
-                        Console.WriteLine($"You picked up the {pickedItem.Name}.\n");
-                    }
-                }
-
+               
                 if (validOption)
                 {
                     directionsTaken++;
