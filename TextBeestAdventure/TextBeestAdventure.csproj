@@ -43,8 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ascii.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Command.cs" />
+    <Compile Include="Dialog.cs" />
+    <Compile Include="Dining Room.cs" />
+    <Compile Include="InventorySystem.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="Kitchen.cs" />
+    <Compile Include="LabRoom.cs" />
+    <Compile Include="NPC.cs" />
+    <Compile Include="NPCWithGoodbye.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Room.cs" />

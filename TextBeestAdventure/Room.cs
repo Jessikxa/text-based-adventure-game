@@ -6,17 +6,42 @@ using System.Threading.Tasks;
 
 namespace TextBeestAdventure
 {
+
+    public enum Directions {
+        North,
+        South,
+        East,
+        West
+    }
     internal class Room
     {
-        public string Name;
-        //public string Doors;
+        public string RoomName;
+        public string RoomDescription;
+        public Dictionary<Directions, Room> Exits {  get; set; }
+        public string CurrentRoom;
+        public List<Item> Items { get; set; }
+        //public List<Room> RoomsAllowedToGoTo { get; set; }
 
-        List<Room> RoomsAllowedToGoTo;
-
-        public Room(string roomName, int bing) 
+        public Room(string roomName, string roomDescription)
         {
-            Name = roomName;
-            RoomsAllowedToGoTo = new List<Room>(bing);
+            RoomName = roomName;
+            RoomDescription = roomDescription;
+            Exits = new Dictionary<Directions, Room>();
+            Items = new List<Item>();
+            //RoomsAllowedToGoTo = new List<Room>();
+        }
+
+        public void addExit(Directions direction, Room nextRoom)
+        {
+            {
+                Exits[direction] = nextRoom;
+
+            }
+        }
+
+        public virtual void RoomFunctions()
+        {
+
         }
     }
 }

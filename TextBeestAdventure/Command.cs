@@ -12,36 +12,27 @@ namespace TextBeestAdventure
     {
         public string Name;
         public string Info;
-        public Commands Accessor;
-        public Action ExecuteCommand;
+        //Action<string> executeCommand ; 
         
         //public int accesor
-       
-        //public enum commandoMando 
-        //{
-        //    Mando = 0,
-        //    Jango = 1,
-        //    AweesomeSacaue = 2,
-        //}
-        //public commandoMando mandodango;
-        public Command(string  name, string info, Action executeCommand, Commands accessor) 
+        //public Action<string> Action;
+        //action executeCommand
+        public enum commandoMando 
         {
-            //mandodango = (commandoMando)Accessor;
-            
-            Name = name;
+            Mando = 0,
+            Jango = 1,
+            AweesomeSacaue = 2,
+        }
+        public commandoMando mandodango;
+        public Command(int Accessor, string info, string name, Action ExecuteCommand) 
+        {
+            mandodango = (commandoMando)Accessor;
             Info = info;
-            ExecuteCommand = executeCommand;
-            Accessor = accessor;
+            Name = name;
             //executeCommand =  ExecuteCommand;
             
         }
         
-        public enum Commands
-        {
-            Walk,
-            Jump,
-            sprint
-        }
         
     }
 }
