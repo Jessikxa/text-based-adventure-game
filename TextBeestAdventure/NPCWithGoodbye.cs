@@ -9,7 +9,7 @@ namespace TextBeestAdventure
     internal class NPCWithGoodbye : NPC
     {
         //public string Goodbye;
-        public NPCWithGoodbye(string name, string interactiontext) : base(name, interactiontext)
+        public NPCWithGoodbye( string interactiontext) : base( interactiontext)
         {
         }
 
